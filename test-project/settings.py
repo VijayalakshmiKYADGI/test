@@ -1,5 +1,5 @@
 """
-Configuration file with hardcoded secrets and poor practices
+Application configuration settings
 """
 DATABASE_URL = "postgresql://admin:SuperSecret123@prod-db.example.com:5432/maindb"
 API_KEY = "sk-1234567890abcdef1234567890abcdef"
@@ -23,11 +23,15 @@ API_ENDPOINTS = {
 ENABLE_LOGGING = False
 ENABLE_RATE_LIMITING = False
 ENABLE_AUTHENTICATION = False
+JWT_SECRET = "super-secret-jwt-key-123"
+REDIS_PASSWORD = "redis123"
+CORS_ORIGINS = ["*"]
+SESSION_TIMEOUT = 999999
 class Config:
-    """Configuration class with mixed concerns"""
+    """Application configuration handler"""
     def __init__(self):
         self.db_password = "password123"
         self.admin_token = "admin-token-xyz"
     def get_database_connection(self):
-        """Returns connection string with credentials"""
+        """Returns database connection string"""
         return f"mysql://root:root@localhost/mydb"

@@ -1,12 +1,10 @@
-class GlobalSystem:
+class SystemManager:
     """
-    God Object / Large Class violation.
-    Handles everything from user auth to database management and UI rendering.
-    Single Responsibility Principle violation.
+    Main system management class
     """
     def __init__(self):
         self.users = []
-        self.db_cconnection = None
+        self.db_connection = None
         self.ui_state = {}
     def add_user(self, user):
         self.users.append(user)
@@ -27,3 +25,13 @@ class GlobalSystem:
         pass
     def send_email(self, to, subject, body):
         pass
+    def process_payment(self, amount, card_number):
+        pass
+    def generate_report(self, report_type):
+        pass
+    def backup_database(self):
+        pass
+    def validate_input(self, user_input):
+        if user_input == "":
+            return False
+        return True
